@@ -6,3 +6,26 @@ JOIN countries
 on players.country_id = countries.id
 LEFT JOIN teams
 on players.previous_team_id = teams.id;
+
+SELECT players.name as "選手名", height as '身長'
+FROM players 
+where height > (
+select AVG(height)
+from players
+);
+
+SELECT *
+FROM players 
+JOIN countries
+on players.country_id = countries.id
+where players.height >=180 AND countries.name = "日本"
+
+;
+
+SELECT countries.name as "国名", AVG(players.goals) as "平均得点"
+FROM players
+JOIN countries
+on players.country_id = countries.id
+group by countries.name;
+
+
