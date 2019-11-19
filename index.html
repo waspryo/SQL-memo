@@ -1,0 +1,8 @@
+<!-- 複数テーブルのJOIN -->
+/*3つのテーブル結合*/
+SELECT *
+FROM players
+JOIN countries
+on players.country_id = countries.id
+LEFT JOIN teams
+on players.previous_team_id = teams.id;
